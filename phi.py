@@ -8,7 +8,7 @@ def phi(prompt):
     load_dotenv()
     client = openai.OpenAI(
         base_url='https://api.inference.wandb.ai/v1',
-        project="isaacwu3/evals-nt" # Replace with your actual project name
+        project="team/project-name" # Replace with your actual project name
     )
     response = client.chat.completions.create(
         model="microsoft/Phi-4-mini-instruct",
