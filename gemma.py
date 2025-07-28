@@ -27,11 +27,11 @@ class Court_Detector():
         
         judgement = await loop.run_in_executor(None, gemma, get_prompt(prompt_name = "judge_prompt", user_input = prompt, benign = benign, adversarial = adversarial))
         verdict = await loop.run_in_executor(None, gemma, get_prompt(prompt_name = "verdict_prompt", verdict_info = judgement))
-        return {"benign":benign, "adversarial":adversarial, "judgement":judgement, "verdict":verdict.lower()}
+        return {"benign":benign, "adversarial":adversarial, "judgement":judgement, "verdict":verdict.lower().replace(".","")}
 
 # Serves as comparison to the Court Detector
 class Direct_Detector():
     def predict(self, prompt):
         direct_thought = gemma(get_prompt(prompt_name = "direct_prompt", user_input = prompt))
         verdict = gemma(get_prompt(prompt_name = "verdict_prompt", verdict_info = direct_thought))
-        return {"direct_throught":direct_thought, "verdict":verdict.lower()}
+        return {"direct_throught":direct_thought, "verdict":verdict.lower().replace(".","")}
