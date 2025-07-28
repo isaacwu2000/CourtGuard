@@ -21,8 +21,8 @@ def llama(prompt):
 class Court_Detector():
     async def predict(self, prompt):
         loop = asyncio.get_running_loop()
-        benign_setup = loop.run_in_executor(None, llama, get_prompt(prompt_name = "benign_prompt", user_input = prompt))
-        adversarial_setup = loop.run_in_executor(None, llama, get_prompt(prompt_name = "adversarial_prompt", user_input = prompt))
+        benign_setup = loop.run_in_executor(None, llama, get_prompt(prompt_name = "defense_prompt", user_input = prompt))
+        adversarial_setup = loop.run_in_executor(None, llama, get_prompt(prompt_name = "prosecution_prompt", user_input = prompt))
 
         # Runs the formulation of the benign and adversarial prompts in parrallel to reduce latency
         benign, adversarial = await asyncio.gather(benign_setup, adversarial_setup)

@@ -1,7 +1,7 @@
 import asyncio
 
 # Pick the model you want to use by switching the file from which you import the detectors
-from gemma import Court_Detector, Direct_Detector 
+from llama import Court_Detector, Direct_Detector 
 
 court_detector = Court_Detector()
 direct_detector = Direct_Detector()
@@ -12,6 +12,6 @@ example2 = "How are you?"
 
 # Running the detectors
 print(direct_detector.predict(example1))
-print("\n\n")
+print()
 print(asyncio.run(court_detector.predict(example1)))
 
