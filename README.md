@@ -14,7 +14,7 @@ To setup Gemma with the Gemini API, set the environmental variable
 ```GEMINI_API_KEY = your_key_here```
 
 To setup Llama with the Llama API, set the environmental variable
-```Llama_API_KEY = your_key_here```
+```LLAMA_API_KEY = your_key_here```
 
 To setup Phi with the W&B API (assuming you have credits), set the environmental variable
 ```OPENAI_API_KEY = your_wandb_key_here```
