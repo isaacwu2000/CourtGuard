@@ -7,14 +7,16 @@ This system uses the Gemini API to access Gemma-3-12b-it, the Llama API (Preview
 ## Setup
 First, run
 ```pip install -r requirements.txt```
-
+---
 To setup Gemma with the Gemini API, set the environmental variable
 ```GEMINI_API_KEY = your_key_here```
----
+
 To setup Llama with the Llama API, set the environmental variable
 ```Llama_API_KEY = your_key_here```
----
+
 To setup Phi with the W&B API (assuming you have credits), set the environmental variable
 ```OPENAI_API_KEY = your_wandb_key_here```
 
 Also, make sure to replace the project name in phi.py with your actual project name.
+---
+Finally, when you want to test the Court Detector (CourtGuard) or the Direct Detector, change the file from which the they are imported from to the model you wish to use, and run main.py.
