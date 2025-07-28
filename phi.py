@@ -1,9 +1,7 @@
 import openai
-import weave
-import os
 from dotenv import load_dotenv
 import asyncio
-import time
+from prompts import get_prompt
 
 def phi(prompt):
     load_dotenv()
@@ -11,19 +9,14 @@ def phi(prompt):
         base_url='https://api.inference.wandb.ai/v1',
         project="isaacfwu-team/non-trivial"
     )
-    while True:
-        response = client.chat.completions.create(
-            model="microsoft/Phi-4-mini-instruct",
-            messages=[
-                {"role": "user", "content": f"{prompt}"}
-            ],
-            temperature=0
-        )
-        if response.choices[0].message.content:
-            return response.choices[0].message.content
-        else:
-            print("Retrying due to empty response...")
-            time.sleep(1)
+    response = client.chat.completions.create(
+        model="microsoft/Phi-4-mini-instruct",
+        messages=[
+            {"role": "user", "content": f"{prompt}"}
+        ],
+        temperature=0
+    )
+    return response.choices[0].message.content
         
 
 def get_prompt(prompt_name = None, user_input = None, verdict_info = None, benign = None, adversarial = None):

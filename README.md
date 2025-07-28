@@ -1,2 +1,18 @@
 # CourtGuard
 A multiagent system modeled off a court to classify prompt injections
+
+## Technical notes
+This system uses the Gemini API to access Gemma-3-12b-it, the Llama API (Preview) to access Llama-3-8b, and the Weights and Biases Inference API to access Phi-4-mini-instruct. All of these models can be run locally or through other providers instead. 
+
+## Setup
+First, run
+```pip install -r requirements.txt```
+
+To setup Gemma with the Gemini API, set the environmental variable
+```GEMINI_API_KEY = your_key_here```
+
+To setup Llama with the Llama API, set the environmental variable
+```Llama_API_KEY = your_key_here```
+
+To setup Phi with the W&B API (assuming you have credits), set the environmental variable
+```OPENAI_API_KEY = your_wandb_key_here```
