@@ -6,7 +6,7 @@ from prompts import get_prompt
 
 def gemma(prompt):
     load_dotenv()
-    client = genai.Client(api_key = key)
+    client = genai.Client()
     response = client.models.generate_content(
         model="gemma-3-12b-it",
         contents=prompt,
