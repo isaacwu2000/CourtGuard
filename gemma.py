@@ -26,7 +26,7 @@ class Court_Detector():
         benign, adversarial = await asyncio.gather(benign_setup, adversarial_setup)
         
         judgement = await loop.run_in_executor(None, gemma, get_prompt(prompt_name = "judge_prompt", user_input = prompt, benign = benign, adversarial = adversarial))
-        verdict = await loop.run_in_executor(None, gemma, get_prompt(prompt_name = "verdict_prompt", verdict_info = synthesis))
+        verdict = await loop.run_in_executor(None, gemma, get_prompt(prompt_name = "verdict_prompt", verdict_info = judgement))
         return {"benign":benign, "adversarial":adversarial, "judgement":judgement, "verdict":verdict.lower()}
 
 # Serves as comparison to the Court Detector
