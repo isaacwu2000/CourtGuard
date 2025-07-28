@@ -2,12 +2,13 @@ import openai
 from dotenv import load_dotenv
 import asyncio
 from prompts import get_prompt
+import weave
 
 def phi(prompt):
     load_dotenv()
     client = openai.OpenAI(
         base_url='https://api.inference.wandb.ai/v1',
-        project="team/project-name" # Replace with your actual project name
+        project="isaacwu3/evals-nt" # Replace with your actual project name
     )
     response = client.chat.completions.create(
         model="microsoft/Phi-4-mini-instruct",

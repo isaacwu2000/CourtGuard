@@ -1,7 +1,7 @@
 import asyncio
 
 # Pick the model you want to use by switching the file from which you import the detectors
-from llama import Court_Detector, Direct_Detector 
+from phi import Court_Detector, Direct_Detector 
 
 court_detector = Court_Detector()
 direct_detector = Direct_Detector()

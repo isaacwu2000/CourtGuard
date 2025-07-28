@@ -5,3 +5,5 @@ set-env-colab-kaggle-dotenv
 google-api-core
 openai
 llama-api-client
+wandb
+weave
